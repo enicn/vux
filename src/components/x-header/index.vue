@@ -2,7 +2,7 @@
   <div class="vux-header">
     <div class="vux-header-left">
       <transition :name="transition">
-        <a class="vux-header-back" @click.preventDefault v-show="_leftOptions.showBack" @click="onClickBack">{{ _leftOptions.backText || $t('back_text') }}</a>
+        <a class="vux-header-back" @click.preventDefault v-show="_leftOptions.showBack" @click="onClickBack" v-html="_leftOptions.backText || $t('back_text') || ''"></a>
       </transition>
       <transition :name="transition">
         <div class="left-arrow" @click="onClickBack" v-show="_leftOptions.showBack"></div>
@@ -12,7 +12,7 @@
     <h1 class="vux-header-title" @click="$emit('on-click-title')">
       <slot>
         <transition :name="transition">
-          <span v-show="title">{{title}}</span>
+          <span v-show="title" v-html="title"></span>
         </transition>
       </slot>
     </h1>
